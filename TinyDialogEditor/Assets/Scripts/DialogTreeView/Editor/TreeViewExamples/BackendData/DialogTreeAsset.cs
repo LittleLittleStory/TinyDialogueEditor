@@ -5,11 +5,11 @@ namespace UnityEditor.TreeViewExamples
 {
 	
 	[CreateAssetMenu (fileName = "TreeDataAsset", menuName = "Tree Asset", order = 1)]
-	public class MyTreeAsset : ScriptableObject
+	public class DialogTreeAsset : ScriptableObject
 	{
-		[SerializeField] List<MyTreeElement> m_TreeElements = new List<MyTreeElement> ();
+		[SerializeField] List<DialogTreeElement> m_TreeElements = new List<DialogTreeElement> ();
 
-		internal List<MyTreeElement> treeElements
+		internal List<DialogTreeElement> treeElements
 		{
 			get { return m_TreeElements; }
 			set { m_TreeElements = value; }
@@ -18,7 +18,7 @@ namespace UnityEditor.TreeViewExamples
 		void Awake ()
 		{
 			if (m_TreeElements.Count == 0)
-				m_TreeElements = MyTreeElementGenerator.GenerateRandomTree(160);
+				m_TreeElements = DialogTreeElementGenerator.GenerateRandomTree(160);
 		}
 	}
 }

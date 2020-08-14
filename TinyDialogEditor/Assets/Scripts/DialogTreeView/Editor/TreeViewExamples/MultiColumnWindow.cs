@@ -15,7 +15,7 @@ namespace UnityEditor.TreeViewExamples
 		[SerializeField] MultiColumnHeaderState m_MultiColumnHeaderState;
 		SearchField m_SearchField;
 		MultiColumnTreeView m_TreeView;
-		MyTreeAsset m_MyTreeAsset;
+		DialogTreeAsset m_MyTreeAsset;
 
 		[MenuItem("TreeView Examples/Multi Columns")]
 		public static MultiColumnWindow GetWindow ()
@@ -30,7 +30,7 @@ namespace UnityEditor.TreeViewExamples
 		[OnOpenAsset]
 		public static bool OnOpenAsset (int instanceID, int line)
 		{
-			var myTreeAsset = EditorUtility.InstanceIDToObject (instanceID) as MyTreeAsset;
+			var myTreeAsset = EditorUtility.InstanceIDToObject (instanceID) as DialogTreeAsset;
 			if (myTreeAsset != null)
 			{
 				var window = GetWindow ();
@@ -40,7 +40,7 @@ namespace UnityEditor.TreeViewExamples
 			return false; // we did not handle the open
 		}
 
-		void SetTreeAsset (MyTreeAsset myTreeAsset)
+		void SetTreeAsset (DialogTreeAsset myTreeAsset)
 		{
 			m_MyTreeAsset = myTreeAsset;
 			m_Initialized = false;
@@ -84,7 +84,7 @@ namespace UnityEditor.TreeViewExamples
 				if (firstInit)
 					multiColumnHeader.ResizeToFit ();
 
-				var treeModel = new TreeModel<MyTreeElement>(GetData());
+				var treeModel = new TreeModel<DialogTreeElement>(GetData());
 				
 				m_TreeView = new MultiColumnTreeView(m_TreeViewState, multiColumnHeader, treeModel);
 
@@ -95,13 +95,13 @@ namespace UnityEditor.TreeViewExamples
 			}
 		}
 		
-		IList<MyTreeElement> GetData ()
+		IList<DialogTreeElement> GetData ()
 		{
 			if (m_MyTreeAsset != null && m_MyTreeAsset.treeElements != null && m_MyTreeAsset.treeElements.Count > 0)
 				return m_MyTreeAsset.treeElements;
 
 			// generate some test data
-			return MyTreeElementGenerator.GenerateRandomTree(130); 
+			return DialogTreeElementGenerator.GenerateRandomTree(130); 
 		}
 
 		void OnSelectionChange ()
@@ -109,7 +109,7 @@ namespace UnityEditor.TreeViewExamples
 			if (!m_Initialized)
 				return;
 
-			var myTreeAsset = Selection.activeObject as MyTreeAsset;
+			var myTreeAsset = Selection.activeObject as DialogTreeAsset;
 			if (myTreeAsset != null && myTreeAsset != m_MyTreeAsset)
 			{
 				m_MyTreeAsset = myTreeAsset;
