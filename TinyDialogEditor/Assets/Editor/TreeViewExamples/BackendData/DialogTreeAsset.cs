@@ -17,8 +17,11 @@ namespace UnityEditor.TreeViewExamples
 
 		void Awake ()
 		{
-			if (m_TreeElements.Count == 0)
-				m_TreeElements = DialogTreeElementGenerator.GenerateRandomTree(160);
-		}
+            if (m_TreeElements.Count == 0)
+            {
+                DialogTreeElement dialogTreeElement = new DialogTreeElement("Root", -1, 0);
+                m_TreeElements.Add(dialogTreeElement);
+            }
+        }
 	}
 }

@@ -123,6 +123,11 @@ namespace UnityEditor.TreeViewExamples
 					var selection = m_TreeView.GetSelection ();
 					m_TreeView.treeModel.RemoveElements (selection);
 				}
+
+                if (GUILayout.Button("Save"))
+                {
+                    EditorUtility.SetDirty(asset);//这里就是关键的一句.其中SkillInfoData是脚本化对象.//2020-4-12, 这句可以直接写在原类中的SaveFile()函数中.
+                }
 			}
 		}
 

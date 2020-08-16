@@ -98,9 +98,7 @@ namespace UnityEditor.TreeViewExamples
 		{
 			if (m_TreeAsset != null && m_TreeAsset.treeElements != null && m_TreeAsset.treeElements.Count > 0)
 				return m_TreeAsset.treeElements;
-
-			// generate some test data
-			return DialogTreeElementGenerator.GenerateRandomTree(130); 
+            return null; 
 		}
 
 		void OnSelectionChange ()
@@ -124,7 +122,8 @@ namespace UnityEditor.TreeViewExamples
 			SearchBar (toolbarRect);
 			DoTreeView (multiColumnTreeViewRect);
 			BottomToolBar (bottomToolbarRect);
-		}
+            EditorUtility.SetDirty(m_TreeAsset);
+        }
 
 		void SearchBar (Rect rect)
 		{
