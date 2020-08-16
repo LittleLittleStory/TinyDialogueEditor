@@ -26,31 +26,22 @@ namespace UnityEditor.TreeViewExamples
 		// All columns
 		enum MyColumns
 		{
-			Icon1,
-			Icon2,
 			Name,
-			Value1,
-			Value2,
-			Value3,
+			DialogNodeGraph,
+			Note
 		}
 
 		public enum SortOption
 		{
 			Name,
-			Value1,
-			Value2,
-			Value3,
+			DialogNodeGraph,
+			Note
 		}
 
 		// Sort options per column
 		SortOption[] m_SortOptions = 
 		{
-			SortOption.Value1, 
-			SortOption.Value3, 
-			SortOption.Name, 
-			SortOption.Value1, 
-			SortOption.Value2,
-			SortOption.Value3
+			SortOption.Name
 		};
 
 		public static void TreeToList (TreeViewItem root, IList<TreeViewItem> result)
@@ -86,8 +77,6 @@ namespace UnityEditor.TreeViewExamples
 
 		public DialogTreeView (TreeViewState state, MultiColumnHeader multicolumnHeader, TreeModel<DialogTreeElement> model) : base (state, multicolumnHeader, model)
 		{
-			Assert.AreEqual(m_SortOptions.Length , Enum.GetValues(typeof(MyColumns)).Length, "Ensure number of sort options are in sync with number of MyColumns enum values");
-
 			// Custom setup
 			rowHeight = kRowHeights;
 			columnIndexForTreeFoldouts = 2;
@@ -190,17 +179,6 @@ namespace UnityEditor.TreeViewExamples
 
 			switch (column)
 			{
-				/*case MyColumns.Icon1:
-					{
-						GUI.DrawTexture(cellRect, s_TestIcons[GetIcon1Index(item)], ScaleMode.ScaleToFit);
-					}
-					break;
-				case MyColumns.Icon2:
-					{
-						GUI.DrawTexture(cellRect, s_TestIcons[GetIcon2Index(item)], ScaleMode.ScaleToFit);
-					}
-					break;*/
-
 				case MyColumns.Name:
 					{
 						// Do toggle
@@ -215,35 +193,12 @@ namespace UnityEditor.TreeViewExamples
 					}
 					break;
 
-				case MyColumns.Value1:
-				case MyColumns.Value2:
-				case MyColumns.Value3:
-					{
-						/*if (showControls)
-						{
-							cellRect.xMin += 5f; // When showing controls make some extra spacing
-
-							if (column == MyColumns.Value1)
-								item.data.floatValue1 = EditorGUI.Slider(cellRect, GUIContent.none, item.data.floatValue1, 0f, 1f);*/
-							if (column == MyColumns.Value1)
-								item.data.dialogNodeGraph = (DialogNodeGraph)EditorGUI.ObjectField(cellRect, GUIContent.none, item.data.dialogNodeGraph, typeof(DialogNodeGraph), false);
-							if (column == MyColumns.Value2)
-								item.data.text = GUI.TextField(cellRect, item.data.text);
-						/*}
-						else
-						{
-							string value = "Missing";
-							if (column == MyColumns.Value1)
-								value = item.data.floatValue1.ToString("f5");
-							if (column == MyColumns.Value2)
-								value = item.data.floatValue2.ToString("f5");
-							if (column == MyColumns.Value3)
-								value = item.data.floatValue3.ToString("f5");
-
-							DefaultGUI.LabelRightAligned(cellRect, value, args.selected, args.focused);
-						}*/
-					}
-					break;
+				case MyColumns.DialogNodeGraph:
+                    item.data.dialogNodeGraph = (DialogNodeGraph)EditorGUI.ObjectField(cellRect, GUIContent.none, item.data.dialogNodeGraph, typeof(DialogNodeGraph), false);
+                    break;
+                case MyColumns.Note:
+                    item.data.text = GUI.TextField(cellRect, item.data.text);
+                    break;
 			}
 		}
 
@@ -287,32 +242,6 @@ namespace UnityEditor.TreeViewExamples
 		{
 			var columns = new[] 
 			{
-				new MultiColumnHeaderState.Column 
-				{
-					headerContent = new GUIContent(EditorGUIUtility.FindTexture("FilterByLabel"), "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "),
-					contextMenuText = "Asset",
-					headerTextAlignment = TextAlignment.Center,
-					sortedAscending = true,
-					sortingArrowAlignment = TextAlignment.Right,
-					width = 30, 
-					minWidth = 30,
-					maxWidth = 60,
-					autoResize = false,
-					allowToggleVisibility = true
-				},
-				new MultiColumnHeaderState.Column 
-				{
-					headerContent = new GUIContent(EditorGUIUtility.FindTexture("FilterByType"), "Sed hendrerit mi enim, eu iaculis leo tincidunt at."),
-					contextMenuText = "Type",
-					headerTextAlignment = TextAlignment.Center,
-					sortedAscending = true,
-					sortingArrowAlignment = TextAlignment.Right,
-					width = 30, 
-					minWidth = 30,
-					maxWidth = 60,
-					autoResize = false,
-					allowToggleVisibility = true
-				},
 				new MultiColumnHeaderState.Column 
 				{
 					headerContent = new GUIContent("Name"),

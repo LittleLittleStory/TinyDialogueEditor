@@ -14,7 +14,7 @@ namespace UnityEditor.TreeViewExamples
 		[SerializeField] MultiColumnHeaderState m_MultiColumnHeaderState;
 		SearchField m_SearchField;
 		DialogTreeView m_TreeView;
-		DialogTreeAsset m_MyTreeAsset;
+		DialogTreeAsset m_TreeAsset;
 
 		[MenuItem("DialogEditor/DialogTreeView")]
 		public static DialogTreeWindow GetWindow ()
@@ -41,7 +41,7 @@ namespace UnityEditor.TreeViewExamples
 
 		void SetTreeAsset (DialogTreeAsset myTreeAsset)
 		{
-			m_MyTreeAsset = myTreeAsset;
+			m_TreeAsset = myTreeAsset;
 			m_Initialized = false;
 		}
 
@@ -96,8 +96,8 @@ namespace UnityEditor.TreeViewExamples
 		
 		IList<DialogTreeElement> GetData ()
 		{
-			if (m_MyTreeAsset != null && m_MyTreeAsset.treeElements != null && m_MyTreeAsset.treeElements.Count > 0)
-				return m_MyTreeAsset.treeElements;
+			if (m_TreeAsset != null && m_TreeAsset.treeElements != null && m_TreeAsset.treeElements.Count > 0)
+				return m_TreeAsset.treeElements;
 
 			// generate some test data
 			return DialogTreeElementGenerator.GenerateRandomTree(130); 
@@ -109,9 +109,9 @@ namespace UnityEditor.TreeViewExamples
 				return;
 
 			var myTreeAsset = Selection.activeObject as DialogTreeAsset;
-			if (myTreeAsset != null && myTreeAsset != m_MyTreeAsset)
+			if (myTreeAsset != null && myTreeAsset != m_TreeAsset)
 			{
-				m_MyTreeAsset = myTreeAsset;
+				m_TreeAsset = myTreeAsset;
 				m_TreeView.treeModel.SetData (GetData ());
 				m_TreeView.Reload ();
 			}
@@ -156,50 +156,32 @@ namespace UnityEditor.TreeViewExamples
 
 				GUILayout.FlexibleSpace();
 
-				GUILayout.Label (m_MyTreeAsset != null ? AssetDatabase.GetAssetPath (m_MyTreeAsset) : string.Empty);
+				GUILayout.Label (m_TreeAsset != null ? AssetDatabase.GetAssetPath (m_TreeAsset) : string.Empty);
 
 				GUILayout.FlexibleSpace ();
 
-				if (GUILayout.Button("Add Item", style))
-				{
-                    var exampleAsset = CreateInstance<DialogNodeGraph>();
-                    AssetDatabase.CreateAsset(exampleAsset, "Assets/ExampleAsset.asset");
-                    AssetDatabase.Refresh();
-                }
-
-                GUILayout.Space(100);
-
-                if (GUILayout.Button("Remove Selcete Item", style))
+                if (GUILayout.Button("Add Item", style))
                 {
-                    var exampleAsset = CreateInstance<DialogNodeGraph>();
-                    AssetDatabase.CreateAsset(exampleAsset, "Assets/ExampleAsset.asset");
-                    AssetDatabase.Refresh();
+                    Undo.RecordObject(m_TreeAsset, "Add Item To Asset");
+
+                    // Add item as child of selection
+                    var selection = m_TreeView.GetSelection();
+                    TreeElement parent = (selection.Count == 1 ? m_TreeView.treeModel.Find(selection[0]) : null) ?? m_TreeView.treeModel.root;
+                    int depth = parent != null ? parent.depth + 1 : 0;
+                    int id = m_TreeView.treeModel.GenerateUniqueID();
+                    var element = new DialogTreeElement("Item " + id, depth, id);
+                    m_TreeView.treeModel.AddElement(element, parent, 0);
+
+                    // Select newly created element
+                    m_TreeView.SetSelection(new[] { id }, TreeViewSelectionOptions.RevealAndFrame);
                 }
 
-
-                /*GUILayout.Label ("Header: ", "minilabel");
-				if (GUILayout.Button("Large", style))
-				{
-					var myColumnHeader = (MyMultiColumnHeader) treeView.multiColumnHeader;
-					myColumnHeader.mode = MyMultiColumnHeader.Mode.LargeHeader;
-				}
-				if (GUILayout.Button("Default", style))
-				{
-					var myColumnHeader = (MyMultiColumnHeader)treeView.multiColumnHeader;
-					myColumnHeader.mode = MyMultiColumnHeader.Mode.DefaultHeader;
-				}
-				if (GUILayout.Button("No sort", style))
-				{
-					var myColumnHeader = (MyMultiColumnHeader)treeView.multiColumnHeader;
-					myColumnHeader.mode = MyMultiColumnHeader.Mode.MinimumHeaderWithoutSorting;
-				}
-
-				GUILayout.Space (10);
-				
-				if (GUILayout.Button("values <-> controls", style))
-				{
-					treeView.showControls = !treeView.showControls;
-				}*/
+                if (GUILayout.Button("Remove Item", style))
+                {
+                    Undo.RecordObject(m_TreeAsset, "Remove Item From Asset");
+                    var selection = m_TreeView.GetSelection();
+                    m_TreeView.treeModel.RemoveElements(selection);
+                }
             }
 
 			GUILayout.EndArea();

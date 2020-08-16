@@ -1,51 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3519964766782446878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 525b240e301150e48a0ce17cda6c8ed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -126, y: -153.5}
-  ports:
-    keys:
-    - LastDialog
-    - NextDialog
-    values:
-    - _fieldName: LastDialog
-      _node: {fileID: -3519964766782446878}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: NextDialog
-      _node: {fileID: -3519964766782446878}
-      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: LastDialog
-        node: {fileID: 54501267909779082}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  LastDialog: 0
-  NextDialog: 0
-  DialogueName: 
-  canReturn: 1
-  CharacterName: 
-  Sentence: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,9 +13,8 @@ MonoBehaviour:
   m_Name: ExampleAsset
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: -3519964766782446878}
-  - {fileID: 54501267909779082}
---- !u!114 &54501267909779082
+  - {fileID: 5823569318390018485}
+--- !u!114 &5823569318390018485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,30 +23,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 525b240e301150e48a0ce17cda6c8ed7, type: 3}
+  m_Script: {fileID: 11500000, guid: a89958be383ab88438fdd69c30f06a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 217, y: -117.5}
+  position: {x: -208.5, y: -48}
   ports:
     keys:
     - LastDialog
     - NextDialog
     values:
     - _fieldName: LastDialog
-      _node: {fileID: 54501267909779082}
+      _node: {fileID: 5823569318390018485}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: NextDialog
-        node: {fileID: -3519964766782446878}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: NextDialog
-      _node: {fileID: 54501267909779082}
+      _node: {fileID: 5823569318390018485}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections: []
@@ -105,5 +55,3 @@ MonoBehaviour:
   NextDialog: 0
   DialogueName: 
   canReturn: 1
-  CharacterName: 
-  Sentence: 
