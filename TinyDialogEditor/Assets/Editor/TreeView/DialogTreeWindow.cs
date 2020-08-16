@@ -42,7 +42,8 @@ namespace UnityEditor.TreeViewExamples
 		void SetTreeAsset (DialogTreeAsset myTreeAsset)
 		{
 			m_TreeAsset = myTreeAsset;
-			m_Initialized = false;
+            EditorUtility.SetDirty(m_TreeAsset);
+            m_Initialized = false;
 		}
 
 		Rect multiColumnTreeViewRect
@@ -90,7 +91,7 @@ namespace UnityEditor.TreeViewExamples
 				m_SearchField = new SearchField();
 				m_SearchField.downOrUpArrowKeyPressed += m_TreeView.SetFocusAndEnsureSelectedItem;
 
-				m_Initialized = true;
+                m_Initialized = true;
 			}
 		}
 		
@@ -122,7 +123,6 @@ namespace UnityEditor.TreeViewExamples
 			SearchBar (toolbarRect);
 			DoTreeView (multiColumnTreeViewRect);
 			BottomToolBar (bottomToolbarRect);
-            EditorUtility.SetDirty(m_TreeAsset);
         }
 
 		void SearchBar (Rect rect)

@@ -28,23 +28,3 @@ MonoBehaviour:
     m_Depth: 1
     dialogNodeGraph: {fileID: 0}
     text: 
-  - m_ID: 3
-    m_Name: Item 3
-    m_Depth: 2
-    dialogNodeGraph: {fileID: 0}
-    text: 
-  - m_ID: 4
-    m_Name: Item 4
-    m_Depth: 3
-    dialogNodeGraph: {fileID: 0}
-    text: 
-  - m_ID: 5
-    m_Name: Item 5
-    m_Depth: 4
-    dialogNodeGraph: {fileID: 0}
-    text: 
-  - m_ID: 6
-    m_Name: Item 6
-    m_Depth: 5
-    dialogNodeGraph: {fileID: 0}
-    text: 

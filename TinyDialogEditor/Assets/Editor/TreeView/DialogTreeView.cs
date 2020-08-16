@@ -79,7 +79,6 @@ namespace UnityEditor.TreeViewExamples
 		{
 			// Custom setup
 			rowHeight = kRowHeights;
-			columnIndexForTreeFoldouts = 2;
 			showAlternatingRowBackgrounds = true;
 			showBorder = true;
 			customFoldoutYOffset = (kRowHeights - EditorGUIUtility.singleLineHeight) * 0.5f; // center foldout in the row since we also center content. See RowGUI
@@ -194,10 +193,10 @@ namespace UnityEditor.TreeViewExamples
 					break;
 
 				case MyColumns.DialogNodeGraph:
-                    item.data.dialogNodeGraph = (DialogNodeGraph)EditorGUI.ObjectField(cellRect, GUIContent.none, item.data.dialogNodeGraph, typeof(DialogNodeGraph), false);
+                    item.data.DialogNodeGraph = (DialogNodeGraph)EditorGUI.ObjectField(cellRect, GUIContent.none, item.data.DialogNodeGraph, typeof(DialogNodeGraph), false);
                     break;
                 case MyColumns.Note:
-                    item.data.text = GUI.TextField(cellRect, item.data.text);
+                    item.data.Note = GUI.TextField(cellRect, item.data.Note);
                     break;
 			}
 		}
