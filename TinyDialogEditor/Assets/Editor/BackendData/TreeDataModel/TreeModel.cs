@@ -36,6 +36,11 @@ namespace UnityEditor.TreeViewExamples
             return m_Data.FirstOrDefault(element => element.id == id);
         }
 
+        public IList<T> GetData()
+        {
+            return m_Data;
+        }
+
         public void SetData(IList<T> data)
         {
             Init(data);
@@ -105,7 +110,7 @@ namespace UnityEditor.TreeViewExamples
             return parentsBelow;
         }
 
-        public void RemoveElements(IList<int> elementIDs)
+        public virtual void RemoveElements(IList<int> elementIDs)
         {
             IList<T> elements = m_Data.Where(element => elementIDs.Contains(element.id)).ToArray();
             RemoveElements(elements);

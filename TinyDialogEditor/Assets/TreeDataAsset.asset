@@ -16,15 +16,25 @@ MonoBehaviour:
   - m_ID: 0
     m_Name: Root
     m_Depth: -1
-    dialogNodeGraph: {fileID: 0}
-    text: 
-  - m_ID: 1
-    m_Name: Item 1
+    DialogNodeGraph: {fileID: 0}
+    Note: 
+  - m_ID: 30
+    m_Name: Item30
     m_Depth: 0
-    dialogNodeGraph: {fileID: 0}
-    text: 
-  - m_ID: 2
-    m_Name: Item 2
+    DialogNodeGraph: {fileID: 11400000, guid: aab371aed1343944e873ac091aace7f1, type: 2}
+    Note: 
+  - m_ID: 31
+    m_Name: Item31
     m_Depth: 1
-    dialogNodeGraph: {fileID: 0}
-    text: 
+    DialogNodeGraph: {fileID: 11400000, guid: 17c802326a52e934fad0c951a5ca9b5b, type: 2}
+    Note: 
+  - m_ID: 32
+    m_Name: Item32
+    m_Depth: 2
+    DialogNodeGraph: {fileID: 11400000, guid: 7d89eb619b9fa4449811efadea4edd90, type: 2}
+    Note: 
+  - m_ID: 33
+    m_Name: Item33
+    m_Depth: 3
+    DialogNodeGraph: {fileID: 11400000, guid: 7febcc0b67981584a94df8546f22fe63, type: 2}
+    Note: 

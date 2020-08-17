@@ -152,9 +152,6 @@ namespace UnityEditor.TreeViewExamples
 			{
 				case SortOption.Name:
 					return myTypes.Order(l => l.data.name, ascending);
-				default:
-					Assert.IsTrue(false, "Unhandled enum");
-					break;
 			}
 
 			// default
