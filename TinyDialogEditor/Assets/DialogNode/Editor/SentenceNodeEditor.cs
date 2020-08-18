@@ -1,34 +1,28 @@
-﻿//using UnityEditor;
-//using UnityEngine;
-//using XNode;
-//using XNodeEditor;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
 
-//namespace Dialogue {
-//    [CustomNodeEditor(typeof(SentenceNode))]
-//    public class SentenceNodeEditor : NodeEditor {
+namespace XNodeEditor
+{
+    [CustomNodeEditor(typeof(SentenceNode))]
+    public class SentenceNodeEditor : NodeEditor
+    {
+        public override void OnHeaderGUI()
+        {
+            SentenceNode node = target as SentenceNode;
+            DialogNodeGraph graph = node.graph as DialogNodeGraph;
+            node.name = node.DialogueName;
+            GUILayout.Label(node.DialogueName, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
+            GUI.color = Color.white;
+        }
 
-//        public override void OnBodyGUI() {
-//            serializedObject.Update();
-
-//            SentenceNode node = target as SentenceNode;
-
-//            if (node.answers.Count == 0) {
-//                GUILayout.BeginHorizontal();
-//                NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("LastDialog"), GUILayout.MinWidth(0));
-//                NodeEditorGUILayout.PortField(GUIContent.none, target.GetOutputPort("NextDialog"), GUILayout.MinWidth(0));
-//                GUILayout.EndHorizontal();
-//            } else {
-//                NodeEditorGUILayout.PortField(GUIContent.none, target.GetInputPort("LastDialog"));
-//            }
-//            GUILayout.Space(-30);
-
-//            NodeEditorGUILayout.DynamicPortList("answers", typeof(DialogueBaseNode), serializedObject, NodePort.IO.Output, Node.ConnectionType.Override);
-
-//            serializedObject.ApplyModifiedProperties();
-//        }
-
-//        public override int GetWidth() {
-//            return 300;
-//        }
-//    }
-//}
+        public override void OnBodyGUI()
+        {
+            base.OnBodyGUI();
+            SentenceNode node = target as SentenceNode;
+            DialogNodeGraph graph = node.graph as DialogNodeGraph;
+            if (GUILayout.Button("OpenSentenceEdiot"))Debug.Log("OpenEditor");
+        }
+    }
+}
