@@ -1,12 +1,15 @@
 {
-    "name": "TreeView",
+    "name": "DialogTreeViewEditor",
     "references": [
         "GUID:613db478cfa47f047926bc08cc5c0508",
         "GUID:002c1bbed08fa44d282ef34fd5edb138",
         "GUID:f4c737a7b3622804b87f16c97e4c0f52",
-        "GUID:2f6c882df6f9a404caa9fb3f2e2d4bee"
+        "GUID:2f6c882df6f9a404caa9fb3f2e2d4bee",
+        "GUID:c1c277bbc85791449afa59664a39dfe8"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
