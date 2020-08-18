@@ -1,0 +1,17 @@
+{
+    "name": "DialogNodeEditor",
+    "references": [
+        "GUID:f4c737a7b3622804b87f16c97e4c0f52",
+        "GUID:613db478cfa47f047926bc08cc5c0508",
+        "GUID:002c1bbed08fa44d282ef34fd5edb138"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

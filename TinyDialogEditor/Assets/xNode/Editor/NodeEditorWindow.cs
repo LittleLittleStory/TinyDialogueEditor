@@ -199,7 +199,7 @@ namespace XNodeEditor {
         public static NodeEditorWindow Open(XNode.NodeGraph graph) {
             if (!graph) return null;
 
-            NodeEditorWindow w = GetWindow(typeof(NodeEditorWindow), false, "DialogEditor", true) as NodeEditorWindow;
+            NodeEditorWindow w = GetWindow(typeof(NodeEditorWindow), false, "xNode", true) as NodeEditorWindow;
             w.wantsMouseMove = true;
             w.graph = graph;
             return w;

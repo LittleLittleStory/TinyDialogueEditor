@@ -6,7 +6,7 @@ using UnityEngine;
 namespace XNodeEditor
 {
     [CustomNodeEditor(typeof(DialogNodeBase))]
-    public class SentenceNodeEditor : NodeEditor
+    public class DialogNodeEditor : NodeEditor
     {
         public override void OnHeaderGUI()
         {
