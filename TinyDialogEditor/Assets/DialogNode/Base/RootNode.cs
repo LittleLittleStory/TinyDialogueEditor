@@ -6,4 +6,20 @@ using XNode;
 public class RootNode : Node
 {
     [Output(backingValue = ShowBackingValue.Never)] public bool NextDialog;
+
+    public DialogBaseNode GetNextDialog()
+    {
+        NodePort nextPort = GetPort("NextDialog");
+        if (null != nextPort)
+        {
+            if (nextPort.Connection == null)
+                return null;
+            if (nextPort.Connection.node == null)
+                return null;
+            if (nextPort.Connection.node is DialogBaseNode)
+                return (DialogBaseNode)nextPort.Connection.node;
+            return null;
+        }
+        return null;
+    }
 }

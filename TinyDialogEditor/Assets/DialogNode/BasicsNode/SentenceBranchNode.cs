@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
-public class SentenceNode : DialogNodeBase
+public class SentenceBranchNode : BranchNodeBase
 {
     public string CharacterName;
     [TextArea(3, 5)]
@@ -14,7 +14,13 @@ public class SentenceNode : DialogNodeBase
         base.Init();
     }
 
-    public override object GetValue(NodePort port) {
-		return null; // Replace this
-	}
+    public override object GetValue(NodePort port)
+    {
+        return Sentence;
+    }
+
+    public override void ReadNode()
+    {
+        Debug.Log(GetValue(GetPort("Sentence")));
+    }
 }
