@@ -15,8 +15,6 @@ public class Test : MonoBehaviour
             return;
         curNode = rootNode.GetNextDialog();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))

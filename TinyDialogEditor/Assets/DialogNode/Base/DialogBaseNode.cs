@@ -24,6 +24,10 @@ public abstract class DialogBaseNode : Node
     /// </summary>
     public abstract void ReadNode();
 
+    /// <summary>
+    /// 得到上一个节点
+    /// </summary>
+    /// <returns></returns>
     public DialogBaseNode GetLastDialog()
     {
         NodePort port = GetPort("LastDialog");
@@ -40,6 +44,10 @@ public abstract class DialogBaseNode : Node
         return null;
     }
 
+    /// <summary>
+    /// 获取下一个节点
+    /// </summary>
+    /// <returns></returns>
     public DialogBaseNode GetNextDialog()
     {
         if (this is BranchNodeBase)

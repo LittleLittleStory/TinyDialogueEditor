@@ -7,6 +7,10 @@ public class RootNode : Node
 {
     [Output(backingValue = ShowBackingValue.Never)] public bool NextDialog;
 
+    /// <summary>
+    /// 获取下一个节点
+    /// </summary>
+    /// <returns></returns>
     public DialogBaseNode GetNextDialog()
     {
         NodePort nextPort = GetPort("NextDialog");

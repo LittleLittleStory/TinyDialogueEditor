@@ -7,6 +7,11 @@ public abstract class BranchNodeBase : DialogBaseNode
 {
     [Output(dynamicPortList = true)] public List<bool> Branchs = new List<bool>();
 
+    /// <summary>
+    /// 通过选择的下标，得到下一个节点
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
     public DialogBaseNode GetNextDialog(int index)
     {
        string portName= "Branchs " + index;
