@@ -18,8 +18,8 @@ MonoBehaviour:
     m_Depth: -1
     DialogNodeGraph: {fileID: 0}
     Note: 
-  - m_ID: 2
-    m_Name: Item2
+  - m_ID: 3
+    m_Name: Item3
     m_Depth: 0
-    DialogNodeGraph: {fileID: 11400000, guid: 2b0ca6ad32814824ab0364e043bb437f, type: 2}
+    DialogNodeGraph: {fileID: 11400000, guid: ace80c8835ebf4e4f875b9ad5c5aed12, type: 2}
     Note: 
