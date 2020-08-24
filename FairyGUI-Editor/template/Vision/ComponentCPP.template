@@ -1,0 +1,38 @@
+#include "{packageName}Binder.h"
+
+namespace {packageName}
+{
+
+USING_NS_FGUI;
+
+const std::string {className}::URL = "{uiPath}";
+
+{className}* {className}::create()
+{
+{createInstance}
+}
+
+{className}* {className}::createByBinder()
+{
+    {className} *pRet = new(std::nothrow) {className}();
+    if (pRet && pRet->init())
+    {
+        pRet->autorelease();
+        return pRet;
+    }
+    else
+    {
+        delete pRet;
+        pRet = nullptr;
+        return nullptr;
+    }
+}
+
+void {className}::constructFromXML(TXMLElement* xml)
+{
+    {componentName}::constructFromXML(xml);
+
+{content}
+}
+
+}

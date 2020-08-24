@@ -1,0 +1,23 @@
+module {packageName} {
+
+	export class {className} extends {componentName} {
+
+{variable}
+
+		public static URL:string = "{uiPath}";
+
+		public static createInstance():{className} {
+{createInstance}
+		}
+
+		public constructor() {
+			super();
+		}
+
+		protected constructFromXML(xml: any): void {
+			super.constructFromXML(xml);
+
+{content}
+		}
+	}
+}

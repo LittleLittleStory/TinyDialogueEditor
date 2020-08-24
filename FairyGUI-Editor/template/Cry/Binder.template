@@ -1,0 +1,12 @@
+using FairyGUI;
+
+namespace {packageName}
+{
+	public class {className}
+	{
+		public static void BindAll()
+		{
+{bindContent}
+		}
+	}
+}

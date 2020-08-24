@@ -1,0 +1,27 @@
+package {packageName};
+
+import fairygui.*;
+
+class {className} extends {componentName}
+{
+{variable}
+
+	public static inline var URL:String = "{uiPath}";
+
+	public static function createInstance():{className}
+	{
+{createInstance}
+	}
+
+	public function new()
+	{
+        super();
+	}
+
+	private override function constructFromXML(xml:FastXML):Void
+	{
+		super.constructFromXML(xml);
+
+{content}
+	}
+}

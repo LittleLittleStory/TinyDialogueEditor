@@ -1,0 +1,8 @@
+module {packageName} {
+
+	export class {className}{
+		public static bindAll():void {
+{bindContent}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+#ifndef __{thisPackageName}_{className}_H__
+#define __{thisPackageName}_{className}_H__
+
+#include "FairyGUI.h"
+
+namespace {packageName}
+{
+{forwardDeclaration}
+class {className} : public {componentName}
+{
+public:
+    static const std::string URL;
+    static {className}* create();
+
+{variable}
+
+protected:
+    virtual void constructFromXML(TXMLElement* xml) override;
+	
+private:
+    static {className}* createByBinder();
+
+    friend class {packageName}Binder;
+};
+
+}
+
+#endif

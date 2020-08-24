@@ -1,0 +1,12 @@
+package {packageName}
+{
+	import fairygui.*;
+
+	public class {className}
+	{
+		public static function bindAll():void
+		{
+{bindContent}
+		}
+	}
+}

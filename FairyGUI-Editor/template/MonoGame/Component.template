@@ -1,0 +1,25 @@
+using FairyGUI;
+
+namespace {packageName}
+{
+	public partial class {className} : {componentName}
+	{
+{variable}
+
+		public const string URL = "{uiPath}";
+
+		public static {className} CreateInstance()
+		{
+{createInstance}
+		}
+
+		public {className}()
+		{
+		}
+
+		protected override void OnConstruct()
+		{
+{content}
+		}
+	}
+}

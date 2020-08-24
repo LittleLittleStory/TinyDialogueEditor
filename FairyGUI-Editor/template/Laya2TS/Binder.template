@@ -1,0 +1,7 @@
+{includeFiles}
+
+export default class {className}{
+	public static bindAll():void {
+{bindContent}
+	}
+}

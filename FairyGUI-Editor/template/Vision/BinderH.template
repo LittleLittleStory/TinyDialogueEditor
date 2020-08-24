@@ -1,0 +1,17 @@
+#ifndef __{thisPackageName}_{className}_H__
+#define __{thisPackageName}_{className}_H__
+
+#include "FairyGUI.h"
+{includeFiles}
+
+namespace {packageName}
+{
+class {className}
+{
+public:
+    static void bindAll();
+};
+
+}
+
+#endif

@@ -1,0 +1,28 @@
+using FairyGUI;
+using FairyGUI.Utils;
+
+namespace {packageName}
+{
+	public partial class {className} : {componentName}
+	{
+{variable}
+
+		public const string URL = "{uiPath}";
+
+		public static {className} CreateInstance()
+		{
+{createInstance}
+		}
+
+		public {className}()
+		{
+		}
+
+		public override void ConstructFromXML(XML xml)
+		{
+			base.ConstructFromXML(xml);
+
+{content}
+		}
+	}
+}

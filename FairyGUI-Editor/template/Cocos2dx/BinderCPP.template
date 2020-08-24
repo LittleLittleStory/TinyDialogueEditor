@@ -1,0 +1,13 @@
+#include "{className}.h"
+
+namespace {packageName}
+{
+
+USING_NS_FGUI;
+
+void {className}::bindAll()
+{
+{bindContent}
+}
+
+}
